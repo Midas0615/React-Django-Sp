@@ -1,0 +1,1 @@
+web: gunicorn playoffs_project.wsgi --log-file -
