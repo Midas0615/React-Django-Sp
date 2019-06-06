@@ -4,7 +4,7 @@ Sports fan application built with Django and React, and deployed with Heroku
 
 **Live site:** <https://***.herokuapp.com/>
 
-**Project Planning:** [Trello](https://trello.com/b/JoUq5vvA/sports-fanatic)
+**Project Planning:** [Trello](https://trello.com/b/JoUq5vvA/playoffs-or-bust)
 
 ## Technologies Used
 
