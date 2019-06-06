@@ -2,7 +2,7 @@
 
 Sports fan application built with Django and React, and deployed with Heroku
 
-**Live site:** <https://***.herokuapp.com/>
+**Live site:** <https://playoffs-or-bust.herokuapp.com/>
 
 **Project Planning:** [Trello](https://trello.com/b/JoUq5vvA/playoffs-or-bust)
 
