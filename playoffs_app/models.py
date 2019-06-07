@@ -4,10 +4,10 @@ class League(models.Model):
     leagueName = models.CharField(max_length=255)
     league_logo_url = models.CharField(max_length=400)
     sport = models.CharField(max_length=255)
-    #teams = Foreign Key? object String
-    #conferences = object String
-    #divisions = object String
-    #champions = object String
+    #teams = Foreign Key? array String
+    #conferences = array String
+    #divisions = array String
+    #champions = array of objects, String and Number
     #favorite = models.BooleanField()
 
     def __str__(self):
@@ -22,10 +22,11 @@ class Team(models.Model):
     conference = models.CharField(max_length=255)
     division = models.CharField(max_length=255)
     championships = models.IntegerField(max_length=3)
+    # or an array of Numbers
     wins = models.IntegerField(max_length=3)
     losses = models.IntegerField(max_length=3)
     standing = models.CharField(max_length=10)
-    #players = Foreign Key? object String
+    #players = Foreign Key? array String
     favorite = models.BooleanField()
 
     def __str__(self):
@@ -40,7 +41,7 @@ class Player(models.Model):
     league = models.ForeignKey(League, on_delete=models.CASCADE, related_name='players')
     position = models.CharField(max_length=255)
     favorite = models.BooleanField()
-    #stats = object String
+    #stats = array of objects, String and String/Number
 
     def __str__(self):
         return self.playerName
