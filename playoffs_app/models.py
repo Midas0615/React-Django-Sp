@@ -21,10 +21,10 @@ class Team(models.Model):
     league = models.ForeignKey(League, on_delete=models.CASCADE, related_name='teams')
     conference = models.CharField(max_length=255)
     division = models.CharField(max_length=255)
-    championships = models.IntegerField(max_length=3)
+    championships = models.IntegerField()
     # or an array of Numbers
-    wins = models.IntegerField(max_length=3)
-    losses = models.IntegerField(max_length=3)
+    wins = models.IntegerField()
+    losses = models.IntegerField()
     standing = models.CharField(max_length=10)
     #players = Foreign Key? array String
     favorite = models.BooleanField()
