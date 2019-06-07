@@ -1,6 +1,6 @@
 # Playoffs or BUST!
 
-Sports fan application built with Django, React, and PostgreSQL, and using a and deployed with Heroku
+Sports fan application built with Django, React, and PostgreSQL, and deployed with Heroku cloud platform.
 
 **Live site:** <https://playoffs-or-bust.herokuapp.com/>
 
