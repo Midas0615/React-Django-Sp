@@ -4,7 +4,15 @@ Sports fan application built with Django, React, and PostgreSQL, and using a and
 
 **Live site:** <https://playoffs-or-bust.herokuapp.com/>
 
-**Project Planning:** [Trello](https://trello.com/b/JoUq5vvA/playoffs-or-bust)
+**Project Planning:**
+
+[Trello](https://trello.com/b/JoUq5vvA/playoffs-or-bust)
+
+![Wireframe](https://github.com/JustinCotton/blackjack/blob/master/PlayoffsWireframe.png)
+
+![Component Diagram](https://github.com/JustinCotton/blackjack/blob/master/PlayoffsDiagram.png)
+
+![Entity Relationship Diagram](https://github.com/JustinCotton/blackjack/blob/master/PlayoffsERD.png)
 
 ## Technologies Used
 
