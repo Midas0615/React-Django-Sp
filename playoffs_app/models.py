@@ -4,11 +4,11 @@ class League(models.Model):
     leagueName = models.CharField(max_length=255)
     league_logo_url = models.CharField(max_length=400)
     sport = models.CharField(max_length=255)
-    teams = #Foreign Key? object String
-    conferences = #object String
-    divisions = #object String
-    champions = #object String
-    favorite = models.BooleanField()
+    #teams = Foreign Key? object String
+    #conferences = object String
+    #divisions = object String
+    #champions = object String
+    #favorite = models.BooleanField()
 
     def __str__(self):
         return self.leagueName
@@ -25,7 +25,7 @@ class Team(models.Model):
     wins = models.IntegerField(max_length=3)
     losses = models.IntegerField(max_length=3)
     standing = models.CharField(max_length=10)
-    players = #Foreign Key? object String
+    #players = Foreign Key? object String
     favorite = models.BooleanField()
 
     def __str__(self):
@@ -34,13 +34,13 @@ class Team(models.Model):
 class Player(models.Model):
     playerName = models.CharField(max_length=255)
     player_photo_url = models.CharField(max_length=400)
-    teamCity = #branch off of foreign key? String
-    teamName = #branch off of foreign key? String    
+    #teamCity = branch off of foreign key? String
+    #teamName = branch off of foreign key? String    
     sport = models.CharField(max_length=255)
     league = models.ForeignKey(League, on_delete=models.CASCADE, related_name='players')
     position = models.CharField(max_length=255)
     favorite = models.BooleanField()
-    stats = #object String
+    #stats = object String
 
     def __str__(self):
         return self.playerName
