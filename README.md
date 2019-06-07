@@ -38,4 +38,4 @@ Sports fan application built with Django, React, and PostgreSQL, and deployed wi
 
 ## Future Development
 
-  * Player data and realtime updates!
+  * Realtime updates!
