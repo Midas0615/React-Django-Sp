@@ -10,7 +10,7 @@ Sports fan application built with Django, React, and PostgreSQL, and using a and
 
   * Client-side Tools: React, Ajax
   * Server-side Tools: Django
-  * Languages: Python, CSS, Javascript
+  * Languages: Python, Javascript
   * Development Tools: nodeJS    
   * Version Control: Git, Github
   * Database Tools: PostgreSQL
