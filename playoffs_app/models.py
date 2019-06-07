@@ -21,7 +21,7 @@ class Team(models.Model):
     league = models.ForeignKey(League, on_delete=models.CASCADE, related_name='teams')
     conference = models.CharField(max_length=255)
     division = models.CharField(max_length=255)
-    championships = IntegerField(max_length=3)
+    championships = models.IntegerField(max_length=3)
     wins = models.IntegerField(max_length=3)
     losses = models.IntegerField(max_length=3)
     standing = models.CharField(max_length=10)
