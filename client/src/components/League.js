@@ -28,10 +28,15 @@ class League extends Component {
     }
 
     render() {
+        const logoStyle = {
+            display: "inline-block",
+            margin: "10px",
+            width: "200px"
+        }
+
         return (
             <div>
-                <img src={this.state.league.league_logo_url} alt=""/>
-                <h1>{this.state.league.leagueName}</h1>
+                <img src={this.state.league.league_logo_url} alt="" style={logoStyle}/>
                 {this.state.teams.map(team => (
                     <div key={team.id}>
                         <h4>{team.teamCity} {team.teamName}</h4>
