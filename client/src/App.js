@@ -13,13 +13,15 @@ class App extends Component {
                     <div>
                         <h1>Playoffs or BUST!</h1>
                         <div>
-                            <div><Link to="/">All Leagues</Link></div>
+                            <div><Link to="/api/v1/leagues">All Leagues</Link></div>
+                            <div><Link to="/api/v1/teams">All Teams</Link></div>
+                            <div><Link to="/api/v1/players">All Players</Link></div>
                         </div>
                     </div>
 
                     <Switch>
                       <Route exact path="/" component={LeagueList}/>
-                      <Route path="/api/v1/league/:id" component={League}/>
+                      <Route path="/league/:id" component={League}/>
                     </Switch>
                 </div>
             </Router>
