@@ -15,7 +15,7 @@ class League extends Component {
 
     fetchLeague = async (leagueId) => {
         try {
-            const leagueResponse = await axios.get(`/api/leagues/${leagueId}`)
+            const leagueResponse = await axios.get(`/api/v1/leagues/${leagueId}`)
             this.setState({
                 league: leagueResponse.data,
                 songs: leagueResponse.data.songs,
