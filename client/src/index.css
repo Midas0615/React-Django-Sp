@@ -9,13 +9,24 @@ body {
 
 h1 {
   font-size: 60px;
+  margin: 0;
 }
 
 a {
   font-size: 40px;
 }
 
+a:visited {
+  color: white;
+}
+
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
+}
+
+.toplink {
+  display: inline-block;
+  margin: 10px;
+  text-decoration: none;
 }

@@ -13,9 +13,9 @@ class App extends Component {
                     <div>
                         <h1>Playoffs or BUST!</h1>
                         <div>
-                            <div><Link to="/api/v1/leagues/">All Leagues</Link></div>
-                            <div><Link to="/api/v1/teams/">All Teams</Link></div>
-                            <div><Link to="/api/v1/players/">All Players</Link></div>
+                            <div class="toplink"><Link to="/leagues/">All Leagues</Link></div>
+                            <div class="toplink"><Link to="/teams/">All Teams</Link></div>
+                            <div class="toplink"><Link to="/players/">All Players</Link></div>
                         </div>
                     </div>
 
