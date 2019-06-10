@@ -19,7 +19,7 @@ class App extends Component {
 
                     <Switch>
                       <Route exact path="/" component={LeagueList}/>
-                      <Route path="/league/:id" component={League}/>
+                      <Route path="/api/v1/league/:id" component={League}/>
                     </Switch>
                 </div>
             </Router>
