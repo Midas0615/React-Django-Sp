@@ -67,7 +67,7 @@ class LeagueList extends Component {
         {
             this.state.isLeagueFormDisplayed
                 ? <div ><h1>Create {this.state.newLeague.leagueName}</h1>
-                <div><img src={this.state.newLeague.league_logo_url} style={logoStyle} alt="League Logo"/></div>
+                <div><img src={this.state.newLeague.league_logo_url} style={logoStyle} alt=''/></div>
                 <form onSubmit={this.createLeague}>
                     <div>
                         <label htmlFor="leagueName">League Name: </label>
