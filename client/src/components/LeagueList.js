@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, Redirect } from 'react-router-dom';
 import axios from 'axios';
 
 class LeagueList extends Component {
@@ -12,6 +12,7 @@ class LeagueList extends Component {
           sport: '',
           favorite: true
         },
+        redirectToHome: false,
         isLeagueFormDisplayed: false
     }
 
@@ -20,25 +21,23 @@ class LeagueList extends Component {
             console.log(res.data)
             this.setState({leagues: res.data})
         })
-      }
+    }
     
-      toggleLeagueForm = () => {
-          this.setState((state, props) => {
-              return ({isLeagueFormDisplayed: !state.isLeagueFormDisplayed})
-          })
-      }
-    
-      handleChange = (e) => {
+    toggleLeagueForm = () => {
+        this.setState((state, props) => {
+            return ({isLeagueFormDisplayed: !state.isLeagueFormDisplayed})
+        })
+    }
+
+    handleChange = (e) => {
         const cloneNewLeague = {...this.state.newLeague}
         cloneNewLeague[e.target.name] = e.target.value
         this.setState({newLeague: cloneNewLeague})
-      }
-    
-      createLeague = (e) => {
+    }
+
+    createLeague = (e) => {
         e.preventDefault()
-        console.log(this.state.newLeague)
-        axios
-            .post('/api/v1/leagues/', this.state.newLeague)
+        axios.post('/api/v1/leagues/', this.state.newLeague)
             .then(res => {
                 const leaguesList = [...this.state.leagues]
                 leaguesList.unshift(res.data)
@@ -53,9 +52,10 @@ class LeagueList extends Component {
                     leagues: leaguesList
                 })
             })
-      }
+    }
     
     render() {
+
         const logoStyle = {
             display: "inline-block",
             margin: "10px",
