@@ -7,8 +7,9 @@ class LeagueList extends Component {
         error: '',
         leagues: [],
         newLeague: {
-          name: '',
-          image: '',
+          leagueName: '',
+          league_logo_url: '',
+          sport: '',
           favorite: true
         },
         isLeagueFormDisplayed: false
@@ -35,15 +36,17 @@ class LeagueList extends Component {
     
       createLeague = (e) => {
         e.preventDefault()
+        console.log(this.state.newLeague)
         axios
-            .post('/api/v1/leagues', this.state.newLeague)
+            .post('/api/v1/leagues/', this.state.newLeague)
             .then(res => {
                 const leaguesList = [...this.state.leagues]
                 leaguesList.unshift(res.data)
                 this.setState({
                     newLeague: {
-                        name: '',
-                        image: '',
+                        leagueName: '',
+                        league_logo_url: '',
+                        sport: '',
                         favorite: true
                     },
                     isLeagueFormDisplayed: false,
@@ -63,27 +66,47 @@ class LeagueList extends Component {
         <div>
         {
             this.state.isLeagueFormDisplayed
-                ? <div ><h1>Create {this.state.newLeague.name}</h1>
-                <div><img src={this.state.newLeague.image} style={logoStyle} alt="League Logo"/></div>
+                ? <div ><h1>Create {this.state.newLeague.leagueName}</h1>
+                <div><img src={this.state.newLeague.league_logo_url} style={logoStyle} alt="League Logo"/></div>
                 <form onSubmit={this.createLeague}>
                     <div>
-                        <label htmlFor="name">League Name: </label>
+                        <label htmlFor="leagueName">League Name: </label>
                         <textarea
-                            id="name"
+                            id="leagueName"
                             type="text"
-                            name="name"
+                            name="leagueName"
                             onChange={this.handleChange}
-                            value={this.state.newLeague.name}
+                            value={this.state.newLeague.leagueName}
                         />
                     </div>
                     <div>
-                        <label htmlFor="image">Image URL: </label>
+                        <label htmlFor="league_logo_url">Image URL: </label>
                         <textarea
                             id="image"
                             type="text"
-                            name="image"
+                            name="league_logo_url"
                             onChange={this.handleChange}
-                            value={this.state.newLeague.image}
+                            value={this.state.newLeague.league_logo_url}
+                        />
+                    </div>
+                    <div>
+                        <label htmlFor="sport">Sport: </label>
+                        <textarea
+                            id="sport"
+                            type="text"
+                            name="sport"
+                            onChange={this.handleChange}
+                            value={this.state.newLeague.sport}
+                        />
+                    </div>
+                    <div>
+                        <label htmlFor="favorite">Favorite?  </label>
+                        <input
+                            id="favorite"
+                            type="checkbox"
+                            name="favorite"
+                            onChange={this.handleChange}
+                            value={this.state.newLeague.favorite}
                         />
                     </div>
                     
