@@ -35,6 +35,27 @@ class League extends Component {
         })
     }
 
+    toggleEditForm = () => {
+        this.setState((state, props) => {
+            return {isEditFormDisplayed: !state.isEditFormDisplayed}
+        })
+    }
+  
+    handleChange = (e) => {
+        const cloneLeague = {...this.state.league}
+        cloneLeague[e.target.name] = e.target.value
+        this.setState({league: cloneLeague})
+    }
+  
+    updateLeague = (e) => {
+        e.preventDefault()
+        axios
+          .put(`/api/v1/leagues/${this.props.match.params.id}/`, this.state.league)
+          .then(res => {
+              this.setState({league: res.data, isEditFormDisplayed: false})
+          })
+    }
+
     render() {
 
         if(this.state.redirectToHome) {
@@ -48,7 +69,58 @@ class League extends Component {
         }
 
         return (
+
             <div>
+        {
+            this.state.isEditFormDisplayed
+                ? <div><h1>Change to {this.state.league.leagueName}</h1>
+                <div><img src={this.state.league.league_logo_url} alt='' style={logoStyle}/></div>
+                <form onSubmit={this.updateLeague}>
+                <div>
+                        <label htmlFor="leagueName">League Name: </label>
+                        <textarea
+                            id="leagueName"
+                            type="text"
+                            name="leagueName"
+                            onChange={this.handleChange}
+                            value={this.state.league.leagueName}
+                        />
+                    </div>
+                    <div>
+                        <label htmlFor="league_logo_url">Image URL: </label>
+                        <textarea
+                            id="image"
+                            type="text"
+                            name="league_logo_url"
+                            onChange={this.handleChange}
+                            value={this.state.league.league_logo_url}
+                        />
+                    </div>
+                    <div>
+                        <label htmlFor="sport">Sport: </label>
+                        <textarea
+                            id="sport"
+                            type="text"
+                            name="sport"
+                            onChange={this.handleChange}
+                            value={this.state.league.sport}
+                        />
+                    </div>
+                    <div>
+                        <label htmlFor="favorite">Favorite?  </label>
+                        <input
+                            id="favorite"
+                            type="checkbox"
+                            name="favorite"
+                            onChange={this.handleChange}
+                            value={this.state.league.favorite}
+                        />
+                    </div>
+                    <button>Rename to {this.state.league.leagueName}</button>
+                    <button onClick={this.toggleEditForm}>Cancel</button>
+                </form>
+                </div>
+                : <div>
                 <img src={this.state.league.league_logo_url} alt="" style={logoStyle}/>
                 {this.state.league.teams.map(team => (
                     <div key={team.id}>
@@ -62,6 +134,10 @@ class League extends Component {
                     <button onClick={this.deleteLeague}>Delete League</button>
                 </div>
             </div>
+        }
+      </div>
+
+            
         );
     }
 }
