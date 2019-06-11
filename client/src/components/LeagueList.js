@@ -76,7 +76,7 @@ class LeagueList extends Component {
                             type="text"
                             name="leagueName"
                             onChange={this.handleChange}
-                            // value={this.state.newLeague.leagueName}
+                            value={this.state.newLeague.leagueName}
                         />
                     </div>
                     <div>
@@ -86,7 +86,7 @@ class LeagueList extends Component {
                             type="text"
                             name="league_logo_url"
                             onChange={this.handleChange}
-                            // value={this.state.newLeague.league_logo_url}
+                            value={this.state.newLeague.league_logo_url}
                         />
                     </div>
                     <div>
@@ -96,7 +96,7 @@ class LeagueList extends Component {
                             type="text"
                             name="sport"
                             onChange={this.handleChange}
-                            // value={this.state.newLeague.sport}
+                            value={this.state.newLeague.sport}
                         />
                     </div>
                     <div>
@@ -106,7 +106,7 @@ class LeagueList extends Component {
                             type="checkbox"
                             name="favorite"
                             onChange={this.handleChange}
-                            // value={this.state.newLeague.favorite}
+                            value={this.state.newLeague.favorite}
                         />
                     </div>
                     
