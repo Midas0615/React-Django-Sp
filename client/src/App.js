@@ -16,11 +16,11 @@ class App extends Component {
                 <div className="App">
 
                     <div>
-                        <h1>Playoffs or BUST!</h1>
+                        <Link to="/"><h1>Playoffs or BUST!</h1></Link>
                         <div>
-                            <div className="toplink"><Link to="/leagues/">All Leagues</Link></div>
-                            <div className="toplink"><Link to="/teams/">All Teams</Link></div>
-                            <div className="toplink"><Link to="/players/">All Players</Link></div>
+                            <div className="toplink"><Link to="/leagues/">Leagues</Link></div>
+                            <div className="toplink"><Link to="/teams/">Teams</Link></div>
+                            <div className="toplink"><Link to="/players/">Players</Link></div>
                         </div>
                     </div>
 
