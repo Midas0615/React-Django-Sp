@@ -5,8 +5,8 @@ import LeagueList from "./components/LeagueList"
 import League from "./components/League"
 import TeamList from "./components/TeamList"
 import Team from "./components/Team"
-// import PlayerList from "./components/PlayerList"
-// import Player from "./components/Player"
+import PlayerList from "./components/PlayerList"
+import Player from "./components/Player"
 import "./App.css";
 
 class App extends Component {
@@ -30,8 +30,8 @@ class App extends Component {
                       <Route exact path="/leagues/:id" component={League}/>
                       <Route exact path="/teams" component={TeamList}/>
                       <Route path="/teams/:id" component={Team}/>
-                      {/* <Route exact path="/players" component={PlayerList}/> */}
-                      {/* <Route path="/players/:id" component={Player}/> */}
+                      <Route exact path="/players" component={PlayerList}/>
+                      <Route path="/players/:id" component={Player}/>
                     </Switch>
                 </div>
             </Router>

@@ -11,8 +11,8 @@ class TeamList extends Component {
           team_logo_url: '',
           sport: '',
           league: '',
-          wins: null,
-          losses: null,
+          wins: 0,
+          losses: 0,
           players: [],
           favorite: true
         },
@@ -90,7 +90,7 @@ class TeamList extends Component {
                     <div>
                         <label htmlFor="team_logo_url">Image URL: </label>
                         <textarea
-                            id="image"
+                            id="team_logo_url"
                             type="text"
                             name="team_logo_url"
                             onChange={this.handleChange}
@@ -159,7 +159,7 @@ class TeamList extends Component {
                     </div>
                     
                    
-                    <button>Create {this.state.newTeam.name}</button>
+                    <button>Create {this.state.newTeam.teamName}</button>
                     <button onClick={this.toggleTeamForm}>Cancel</button>
                 </form>
                 </div>

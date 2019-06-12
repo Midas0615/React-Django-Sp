@@ -111,7 +111,7 @@ class LeagueList extends Component {
                     </div>
                     
                    
-                    <button>Create {this.state.newLeague.name}</button>
+                    <button>Create {this.state.newLeague.leagueName}</button>
                     <button onClick={this.toggleLeagueForm}>Cancel</button>
                 </form>
                 </div>
