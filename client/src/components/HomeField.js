@@ -1,11 +1,11 @@
 import React, { Component } from 'react'
-import sportsing from './sportsing2.jpg'
+import sportsing from './Drake.gif'
 
 class HomeField extends Component {
 
   render() {
     const imgStyle = {
-        width: "45%",
+        width: "75%",
         margin: "20px",
         borderRadius: "300px"
       }
