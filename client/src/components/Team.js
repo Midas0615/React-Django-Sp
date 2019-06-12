@@ -162,10 +162,12 @@ class Team extends Component {
                 </div>
                 : <div>
                 <img src={this.state.team.team_logo_url} alt="" style={logoStyle}/>
+                <h2>{this.state.team.teamName}</h2>
                 {this.state.team.players.map(player => (
                     <div key={player.id}>
                         {/* <h4>{team.teamCity} {team.teamName}</h4> */}
                         <Link to={`/players/${player.id}`}><img src={player.player_photo_url} alt="" style={logoStyle}/></Link>
+                        <h2>{player.playerName}</h2>
                     </div>
                 ))}
                 <div>
