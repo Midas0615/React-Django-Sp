@@ -69,6 +69,8 @@ class League extends Component {
 
         const logosStyle = {
             display: "inline-block",
+            margin: "10px",
+            height: "250px"
         }
 
         return (
