@@ -65,7 +65,7 @@ class Player extends Component {
         const logoStyle = {
             display: "inline-block",
             margin: "10px",
-            height: "200px"
+            height: "300px"
         }
 
         return (

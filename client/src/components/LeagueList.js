@@ -57,9 +57,8 @@ class LeagueList extends Component {
     render() {
 
         const logoStyle = {
-            display: "inline-block",
             margin: "10px",
-            height: "200px"
+            height: "250px"
         }
 
         const logosStyle = {

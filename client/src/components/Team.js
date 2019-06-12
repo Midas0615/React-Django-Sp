@@ -63,9 +63,12 @@ class Team extends Component {
         }
 
         const logoStyle = {
-            display: "inline-block",
             margin: "10px",
-            height: "200px"
+            height: "250px"
+        }
+
+        const logosStyle = {
+            display: "inline-block",
         }
 
         return (
@@ -164,7 +167,7 @@ class Team extends Component {
                 <img src={this.state.team.team_logo_url} alt="" style={logoStyle}/>
                 <h2>{this.state.team.teamName}</h2>
                 {this.state.team.players.map(player => (
-                    <div key={player.id}>
+                    <div key={player.id} style={logosStyle}>
                         {/* <h4>{team.teamCity} {team.teamName}</h4> */}
                         <Link to={`/players/${player.id}`}><img src={player.player_photo_url} alt="" style={logoStyle}/></Link>
                         <h2>{player.playerName}</h2>
