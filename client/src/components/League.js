@@ -124,7 +124,7 @@ class League extends Component {
                 </form>
                 </div>
                 : <div>
-                <img src={this.state.league.league_logo_url} alt="" style={logoStyle}/>
+                <img src={this.state.league.league_logo_url} alt="" style={logosStyle}/>
                 {this.state.league.teams.map(team => (
                     <div key={team.id} style={logosStyle}>
                         {/* <h4>{team.teamCity} {team.teamName}</h4> */}
