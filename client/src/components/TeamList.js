@@ -6,6 +6,7 @@ class TeamList extends Component {
     state = {
         error: '',
         teams: [],
+        leagues: [],
         newTeam: {
           teamName: '',
           team_logo_url: '',
@@ -13,7 +14,6 @@ class TeamList extends Component {
           league: '',
           wins: 0,
           losses: 0,
-          players: [],
           favorite: true
         },
         redirectToHome: false,
@@ -24,6 +24,13 @@ class TeamList extends Component {
         axios.get('/api/v1/teams/').then(res => {
             console.log(res.data)
             this.setState({teams: res.data})
+        }).then( () => {this.getLeagues()})
+    }
+
+    getLeagues = () => {
+        axios.get('/api/v1/leagues/').then(res => {
+            console.log(res.data)
+            this.setState({leagues: res.data})
         })
     }
     
@@ -39,6 +46,12 @@ class TeamList extends Component {
         this.setState({newTeam: cloneNewTeam})
     }
 
+    setLeagueId = (leagueIdForTeam) => {
+        const setTeam = {...this.state.newTeam}
+        setTeam.league = leagueIdForTeam
+        this.setState({newTeam: setTeam})
+    }
+
     createTeam = (e) => {
         e.preventDefault()
         axios.post('/api/v1/teams/', this.state.newTeam)
@@ -51,12 +64,11 @@ class TeamList extends Component {
                         team_logo_url: '',
                         sport: '',
                         league: '',
-                        wins: null,
-                        losses: null,
-                        players: [],
+                        wins: 0,
+                        losses: 0,
                         favorite: true
                     },
-                    isLeagueFormDisplayed: false,
+                    isTeamFormDisplayed: false,
                     teams: teamsList
                 })
             })
@@ -72,6 +84,12 @@ class TeamList extends Component {
         const logosStyle = {
             display: "inline-block",
         }
+
+        const smallLogoStyle = {
+            display: "inline-block",
+            margin: "10px",
+            height: "75px"
+        }
     
     return (
         <div>
@@ -79,6 +97,16 @@ class TeamList extends Component {
             this.state.isTeamFormDisplayed
                 ? <div ><h1>Create {this.state.newTeam.teamName}</h1>
                 <div><img src={this.state.newTeam.team_logo_url} style={logoStyle} alt=''/></div>
+                    <h2>Click the league you want, then make your team!</h2>
+                    {this.state.leagues.map(league => {
+                        return (                   
+                            <div onClick={() => {this.setLeagueId(league.id)}} key={league.id} style={smallLogoStyle}>                                
+                                <img src={league.league_logo_url} alt="" style={smallLogoStyle}/>
+                            </div>
+                        )                          
+                    })
+                    }
+
                 <form onSubmit={this.createTeam}>
                     <div>
                         <label htmlFor="teamName">Team Name: </label>
@@ -111,16 +139,6 @@ class TeamList extends Component {
                         />
                     </div>
                     <div>
-                        <label htmlFor="league">League: </label>
-                        <textarea
-                            id="league"
-                            type="text"
-                            name="league"
-                            onChange={this.handleChange}
-                            value={this.state.newTeam.league}
-                        />
-                    </div>
-                    <div>
                         <label htmlFor="wins">Wins: </label>
                         <textarea
                             id="wins"
@@ -141,16 +159,6 @@ class TeamList extends Component {
                         />
                     </div>
                     <div>
-                        <label htmlFor="players">Players: </label>
-                        <textarea
-                            id="players"
-                            type="text"
-                            name="players"
-                            onChange={this.handleChange}
-                            value={this.state.newTeam.players}
-                        />
-                    </div>
-                    <div>
                         <label htmlFor="favorite">Favorite?  </label>
                         <input
                             id="favorite"
@@ -159,10 +167,8 @@ class TeamList extends Component {
                             onChange={this.handleChange}
                             value={this.state.newTeam.favorite}
                         />
-                    </div>
-                    
-                   
-                    <button>Create {this.state.newTeam.teamName}</button>
+                    </div>            
+                    <button type="submit">Create {this.state.newTeam.teamName}</button>
                     <button onClick={this.toggleTeamForm}>Cancel</button>
                 </form>
                 </div>

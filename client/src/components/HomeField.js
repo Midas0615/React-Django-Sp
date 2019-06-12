@@ -7,7 +7,7 @@ class HomeField extends Component {
     const imgStyle = {
         width: "75%",
         margin: "20px",
-        borderRadius: "300px"
+        borderRadius: "100px"
       }
       const sportsStyle = {
         fontSize: "30px",

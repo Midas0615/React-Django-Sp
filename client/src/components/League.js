@@ -129,7 +129,6 @@ class League extends Component {
                 <img src={this.state.league.league_logo_url} alt="" style={logosStyle}/>
                 {this.state.league.teams.map(team => (
                     <div key={team.id} style={logosStyle}>
-                        {/* <h4>{team.teamCity} {team.teamName}</h4> */}
                         <Link to={`/teams/${team.id}`}><img src={team.team_logo_url} alt="" style={logoStyle}/></Link>
                         <h2>{team.teamName}</h2>
                     </div>

@@ -21,16 +21,15 @@ Sports fan application built with Django, React, and PostgreSQL, and deployed wi
 ## Technologies Used
 
   * Client-side Tools: React, Ajax
-  * Server-side Tools: Django
+  * Server-side Tools: Django, Django REST Framework
   * Languages: Python, Javascript
   * Development Tools: nodeJS    
   * Version Control: Git, Github
   * Database Tools: PostgreSQL
-  * API Development: Postman
   * Cloud Deployment: Heroku
   * Text Editor: Visual Studio Code
   * Design: Unsplash, Google Fonts
-  * Third-Party API: 
+  * Third-Party API: MySportsFeeds
 
 ## Features
 
