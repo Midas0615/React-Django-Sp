@@ -71,7 +71,7 @@ class PlayerList extends Component {
         {
             this.state.isPlayerFormDisplayed
                 ? <div ><h1>Create {this.state.newPlayer.playerName}</h1>
-                <div><img src={this.state.newPlayer.player_logo_url} style={logoStyle} alt=''/></div>
+                <div><img src={this.state.newPlayer.player_photo_url} style={logoStyle} alt=''/></div>
                 <form onSubmit={this.createPlayer}>
                     <div>
                         <label htmlFor="playerName">Player Name: </label>

@@ -44,7 +44,7 @@ class Player extends Component {
     handleChange = (e) => {
         const clonePlayer = {...this.state.player}
         clonePlayer[e.target.name] = e.target.value
-        this.setState({team: clonePlayer})
+        this.setState({player: clonePlayer})
     }
   
     updatePlayer = (e) => {
@@ -83,7 +83,7 @@ class Player extends Component {
                             type="text"
                             name="playerName"
                             onChange={this.handleChange}
-                            value={this.state.newPlayer.playerName}
+                            value={this.state.player.playerName}
                         />
                     </div>
                     <div>
@@ -93,7 +93,7 @@ class Player extends Component {
                             type="text"
                             name="player_photo_url"
                             onChange={this.handleChange}
-                            value={this.state.newPlayer.player_photo_url}
+                            value={this.state.player.player_photo_url}
                         />
                     </div>
                     <div>
@@ -103,7 +103,7 @@ class Player extends Component {
                             type="text"
                             name="sport"
                             onChange={this.handleChange}
-                            value={this.state.newPlayer.sport}
+                            value={this.state.player.sport}
                         />
                     </div>
                     <div>
@@ -113,7 +113,7 @@ class Player extends Component {
                             type="text"
                             name="team"
                             onChange={this.handleChange}
-                            value={this.state.newPlayer.team}
+                            value={this.state.player.team}
                         />
                     </div>
                     <div>
@@ -123,7 +123,7 @@ class Player extends Component {
                             type="text"
                             name="position"
                             onChange={this.handleChange}
-                            value={this.state.newPlayer.position}
+                            value={this.state.player.position}
                         />
                     </div>
                     <div>
@@ -133,7 +133,7 @@ class Player extends Component {
                             type="checkbox"
                             name="favorite"
                             onChange={this.handleChange}
-                            value={this.state.newPlayer.favorite}
+                            value={this.state.player.favorite}
                         />
                     </div>
                     <button>Rename to {this.state.player.playerName}</button>
@@ -142,6 +142,7 @@ class Player extends Component {
                 </div>
                 : <div>
                 <img src={this.state.player.player_photo_url} alt="" style={logoStyle}/>
+                <h2>{this.state.player.playerName}</h2>
                 {/* {this.state.team.stats.map(stat => (
                     <div key={player.id}>d
                         <Link to={`/players/${player.id}`}><img src={player.player_photo_url} alt="" style={logoStyle}/></Link>

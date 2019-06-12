@@ -83,7 +83,7 @@ class Team extends Component {
                             type="text"
                             name="teamName"
                             onChange={this.handleChange}
-                            value={this.state.newTeam.teamName}
+                            value={this.state.team.teamName}
                         />
                     </div>
                     <div>
@@ -93,7 +93,7 @@ class Team extends Component {
                             type="text"
                             name="team_logo_url"
                             onChange={this.handleChange}
-                            value={this.state.newTeam.team_logo_url}
+                            value={this.state.team.team_logo_url}
                         />
                     </div>
                     <div>
@@ -103,7 +103,7 @@ class Team extends Component {
                             type="text"
                             name="sport"
                             onChange={this.handleChange}
-                            value={this.state.newTeam.sport}
+                            value={this.state.team.sport}
                         />
                     </div>
                     <div>
@@ -113,7 +113,7 @@ class Team extends Component {
                             type="text"
                             name="league"
                             onChange={this.handleChange}
-                            value={this.state.newTeam.league}
+                            value={this.state.team.league}
                         />
                     </div>
                     <div>
@@ -123,7 +123,7 @@ class Team extends Component {
                             type="text"
                             name="wins"
                             onChange={this.handleChange}
-                            value={this.state.newTeam.wins}
+                            value={this.state.team.wins}
                         />
                     </div>
                     <div>
@@ -133,7 +133,7 @@ class Team extends Component {
                             type="text"
                             name="losses"
                             onChange={this.handleChange}
-                            value={this.state.newTeam.losses}
+                            value={this.state.team.losses}
                         />
                     </div>
                     <div>
@@ -143,7 +143,7 @@ class Team extends Component {
                             type="text"
                             name="players"
                             onChange={this.handleChange}
-                            value={this.state.newTeam.players}
+                            value={this.state.team.players}
                         />
                     </div>
                     <div>
@@ -153,7 +153,7 @@ class Team extends Component {
                             type="checkbox"
                             name="favorite"
                             onChange={this.handleChange}
-                            value={this.state.newTeam.favorite}
+                            value={this.state.team.favorite}
                         />
                     </div>
                     <button>Rename to {this.state.team.teamName}</button>
