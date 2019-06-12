@@ -61,6 +61,10 @@ class LeagueList extends Component {
             margin: "10px",
             height: "200px"
         }
+
+        const logosStyle = {
+            display: "inline-block",
+        }
     
     return (
         <div>
@@ -120,7 +124,7 @@ class LeagueList extends Component {
                         {
                         this.state.leagues.map(league => {
                             return (
-                                <div key={league.id}>                        
+                                <div key={league.id} style={logosStyle}>                        
                                     <Link to={`/leagues/${league.id}`}><img src={league.league_logo_url} alt="" style={logoStyle}/><br></br>{league.name}</Link>
                                 </div>
                             )
