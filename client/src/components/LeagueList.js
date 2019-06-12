@@ -124,7 +124,7 @@ class LeagueList extends Component {
                         this.state.leagues.map(league => {
                             return (
                                 <div key={league.id} style={logosStyle}>                        
-                                    <Link to={`/leagues/${league.id}`}><img src={league.league_logo_url} alt="" style={logoStyle}/><br></br>{league.name}</Link>
+                                    <Link to={`/leagues/${league.id}`}><img src={league.league_logo_url} alt="" style={logoStyle}/></Link>
                                 </div>
                             )
                         })

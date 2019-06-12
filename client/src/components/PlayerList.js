@@ -149,7 +149,7 @@ class PlayerList extends Component {
                             return (
                                 <div key={player.id} style={logosStyle}>                        
                                     <Link to={`/players/${player.id}`}><img src={player.player_photo_url} alt="" style={logoStyle}/><br></br></Link>
-                                    {player.playerName}
+                                    <h2>{player.playerName}</h2>
                                 </div>
                             )
                         })
