@@ -6,6 +6,7 @@ class PlayerList extends Component {
     state = {
         error: '',
         players: [],
+        teams: [],
         newPlayer: {
           playerName: '',
           player_photo_url: '',
@@ -22,6 +23,13 @@ class PlayerList extends Component {
         axios.get('/api/v1/players/').then(res => {
             console.log(res.data)
             this.setState({players: res.data})
+        }).then( () => {this.getTeams()})
+    }
+
+    getTeams = () => {
+        axios.get('/api/v1/teams/').then(res => {
+            console.log(res.data)
+            this.setState({teams: res.data})
         })
     }
     
@@ -37,10 +45,17 @@ class PlayerList extends Component {
         this.setState({newPlayer: cloneNewPlayer})
     }
 
+    setTeamId = (teamIdForPlayer) => {
+        const setPlayer = {...this.state.newPlayer}
+        setPlayer.team = teamIdForPlayer
+        this.setState({newPlayer: setPlayer})
+    }
+
     createPlayer = (e) => {
         e.preventDefault()
         axios.post('/api/v1/players/', this.state.newPlayer)
             .then(res => {
+                console.log(res.data)
                 const playersList = [...this.state.players]
                 playersList.unshift(res.data)
                 this.setState({
@@ -68,6 +83,12 @@ class PlayerList extends Component {
         const logosStyle = {
             display: "inline-block",
         }
+
+        const smallLogoStyle = {
+            display: "inline-block",
+            margin: "10px",
+            height: "75px"
+        }
     
     return (
         <div>
@@ -75,6 +96,17 @@ class PlayerList extends Component {
             this.state.isPlayerFormDisplayed
                 ? <div ><h1>Create {this.state.newPlayer.playerName}</h1>
                 <div><img src={this.state.newPlayer.player_photo_url} style={logoStyle} alt=''/></div>
+                <h2>Click the team you want, then make your player!</h2>
+                <h2>If your team isn't listed, add it under the Teams tab!</h2>
+                    {this.state.teams.map(team => {
+                        return (                   
+                            <div onClick={() => {this.setTeamId(team.id)}} key={team.id} style={smallLogoStyle}>                                
+                                <img src={team.team_logo_url} alt="" style={smallLogoStyle}/>
+                            </div>
+                        )                          
+                    })
+                    }
+
                 <form onSubmit={this.createPlayer}>
                     <div>
                         <label htmlFor="playerName">Player Name: </label>
@@ -107,16 +139,6 @@ class PlayerList extends Component {
                         />
                     </div>
                     <div>
-                        <label htmlFor="team">Team: </label>
-                        <textarea
-                            id="team"
-                            type="text"
-                            name="team"
-                            onChange={this.handleChange}
-                            value={this.state.newPlayer.team}
-                        />
-                    </div>
-                    <div>
                         <label htmlFor="position">Position: </label>
                         <textarea
                             id="position"
@@ -138,7 +160,7 @@ class PlayerList extends Component {
                     </div>
                     
                    
-                    <button>Create {this.state.newPlayer.playerName}</button>
+                    <button type="submit">Create {this.state.newPlayer.playerName}</button>
                     <button onClick={this.togglePlayerForm}>Cancel</button>
                 </form>
                 </div>
