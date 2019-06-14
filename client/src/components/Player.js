@@ -34,8 +34,18 @@ class Player extends Component {
         axios.get(`/api/v1/stats`).then(res => {
             console.log(res.data)
             let stats = res.data
-            console.log(stats.cumulativeplayerstats.lastUpdatedOn)
-            // this.setState({redirectToHome: true})
+            console.log(stats.cumulativeplayerstats.playerstatsentry[0].stats.Fg3PtAttPerGame)
+            let statLine = stats.cumulativeplayerstats.playerstatsentry[0].stats.Fg3PtAttPerGame
+            let stat = {}
+            for(var item in statLine){
+                var thisname = item.substring(1)
+                stat[thisname] = statLine[item]
+                console.log(stat)
+            }
+            let statLine2 = stats.cumulativeplayerstats.playerstatsentry[0].stats.Fg3PtAttPerGame.text
+            console.log(statLine2)
+            return stats
+            // this.setState({stats: stats})
             
         })
     }
@@ -154,6 +164,7 @@ class Player extends Component {
                 : <div>
                 <img src={this.state.player.player_photo_url} alt="" style={logoStyle}/>
                 <h2>{this.state.player.playerName}</h2>
+                <p>Stats: {stats}</p>
                 {/* {this.state.team.stats.map(stat => (
                     <div key={player.id}>d
                         <Link to={`/players/${player.id}`}><img src={player.player_photo_url} alt="" style={logoStyle}/></Link>
