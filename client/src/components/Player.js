@@ -13,6 +13,7 @@ class Player extends Component {
     componentDidMount() {
         const playerId = this.props.match.params.id;
         this.fetchPlayer(playerId)
+        this.fetchPlayerStats()
     }
 
     fetchPlayer = async (playerId) => {
@@ -27,6 +28,16 @@ class Player extends Component {
             console.log(error)
             this.setState({error: error.message})
         }
+    }
+
+    fetchPlayerStats = () => {
+        axios.get(`/api/v1/stats`).then(res => {
+            console.log(res.data)
+            let stats = res.data
+            console.log(stats.cumulativeplayerstats.lastUpdatedOn)
+            // this.setState({redirectToHome: true})
+            
+        })
     }
 
     deletePlayer = () => {

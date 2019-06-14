@@ -24,3 +24,4 @@ class FrontendAppView(View):
                 """,
                 status=501,
             )
+
