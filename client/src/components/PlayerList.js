@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import axios from 'axios';
+// import MySportsFeeds from 'ohmysportsfeedspy';
 
 class PlayerList extends Component {
     state = {
@@ -98,6 +99,7 @@ class PlayerList extends Component {
                 <div><img src={this.state.newPlayer.player_photo_url} style={logoStyle} alt=''/></div>
                 <h2>Click the team you want, then make your player!</h2>
                 <h2>If your team isn't listed, add it under the Teams tab!</h2>
+                {/* <h2>{stat}</h2> */}
                     {this.state.teams.map(team => {
                         return (                   
                             <div onClick={() => {this.setTeamId(team.id)}} key={team.id} style={smallLogoStyle}>                                

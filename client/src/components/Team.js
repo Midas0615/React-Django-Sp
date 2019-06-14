@@ -69,6 +69,7 @@ class Team extends Component {
 
         const logosStyle = {
             display: "inline-block",
+            margin: "10px"
         }
 
         return (

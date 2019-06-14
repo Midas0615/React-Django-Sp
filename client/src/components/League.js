@@ -64,7 +64,7 @@ class League extends Component {
 
         const logoStyle = {
             margin: "10px",
-            height: "250px"
+            height: "200px"
         }
 
         const logosStyle = {
