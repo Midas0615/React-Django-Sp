@@ -5,9 +5,8 @@ import axios from 'axios';
 class Player extends Component {
 
     state = {
-            player: {
-                stats: []
-            }
+            player: {},
+            stats: {}
     }
 
     componentDidMount() {
@@ -36,32 +35,21 @@ class Player extends Component {
             // console.log(res.data)
             let stats = res.data
             let playerArray = stats.cumulativeplayerstats.playerstatsentry
-            // console.log(playerArray)
-            console.log(playerArray[0])            
-
             const singlePlayerStats = playerArray.filter(singlePlayer => singlePlayer.player.FirstName === "LeBron");
-
-            // var objArray = [
-            //     { id: 0, name: 'Object 0', otherProp: '321' },
-            //     { id: 1, name: 'O1', otherProp: '648' },
-            //     { id: 2, name: 'Another Object', otherProp: '850' },
-            //     { id: 3, name: 'Almost There', otherProp: '046' },
-            //     { id: 4, name: 'Last Obj', otherProp: '984' }
-            // ];
-
-            // let obj = objArray.find(obj => obj.id == 3);
-
             console.log(singlePlayerStats)
-
+            this.setState({stats: singlePlayerStats})
 
             // let statLine = stats.cumulativeplayerstats.playerstatsentry[0].stats.Fg3PtAttPerGame
             // console.log(statLine)
-            // let stat = {}
-            // for(var item in statLine){
-            //     var thisname = item.substring(1)
-            //     stat[thisname] = statLine[item]
-                // console.log(stat)
-            // }
+            let singlePlayerStats2 = singlePlayerStats[0].stats.Ast
+            // console.log(singlePlayerStats2)
+            let statLine = {}
+            for(var item in singlePlayerStats2){
+                var thisname = item.substring(1)
+                statLine[thisname] = singlePlayerStats2[item]
+            }
+            console.log(statLine)
+            this.setState({stats: statLine})
             // let statLine2 = stats.cumulativeplayerstats.playerstatsentry[0].stats.Fg3PtAttPerGame.text
             // console.log(statLine2)
             // return stats
@@ -184,7 +172,7 @@ class Player extends Component {
                 : <div>
                 <img src={this.state.player.player_photo_url} alt="" style={logoStyle}/>
                 <h2>{this.state.player.playerName}</h2>
-                <p>Stats: {this.stats}</p>
+                <p>Stats: {this.state.stats.abbreviation}: {this.state.stats.text}</p>
                 {/* {this.state.team.stats.map(stat => (
                     <div key={player.id}>d
                         <Link to={`/players/${player.id}`}><img src={player.player_photo_url} alt="" style={logoStyle}/></Link>
