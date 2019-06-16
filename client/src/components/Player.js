@@ -6,7 +6,11 @@ class Player extends Component {
 
     state = {
             player: {},
-            stats: {}
+            Pts: {},
+            Ast: {},
+            Reb: {},
+            Stl: {},
+            Blk: {}
     }
 
     componentDidMount() {
@@ -20,7 +24,6 @@ class Player extends Component {
             const playerResponse = await axios.get(`/api/v1/players/${playerId}`)
             this.setState({
                 player: playerResponse.data
-                // songs: playerResponse.data.songs,
             })
         }
         catch (error) {
@@ -31,30 +34,15 @@ class Player extends Component {
 
     fetchPlayerStats = () => {
         axios.get(`/api/v1/stats`).then(res => {
-        // axios.get(`/api/v1/stats/${this.state.player.playerName}`).then(res => {
-            // console.log(res.data)
             let stats = res.data
             let playerArray = stats.cumulativeplayerstats.playerstatsentry
             const singlePlayerStats = playerArray.filter(singlePlayer => singlePlayer.player.FirstName === "LeBron");
-            console.log(singlePlayerStats)
-            this.setState({stats: singlePlayerStats})
-
-            // let statLine = stats.cumulativeplayerstats.playerstatsentry[0].stats.Fg3PtAttPerGame
-            // console.log(statLine)
-            let singlePlayerStats2 = singlePlayerStats[0].stats.Ast
-            // console.log(singlePlayerStats2)
-            let statLine = {}
-            for(var item in singlePlayerStats2){
-                var thisname = item.substring(1)
-                statLine[thisname] = singlePlayerStats2[item]
-            }
-            console.log(statLine)
-            this.setState({stats: statLine})
-            // let statLine2 = stats.cumulativeplayerstats.playerstatsentry[0].stats.Fg3PtAttPerGame.text
-            // console.log(statLine2)
-            // return stats
-            // this.setState({stats: stats})
-            
+            let playerPts = singlePlayerStats[0].stats.PtsPerGame
+            let playerAst = singlePlayerStats[0].stats.AstPerGame
+            let playerReb = singlePlayerStats[0].stats.RebPerGame
+            let playerStl = singlePlayerStats[0].stats.StlPerGame
+            let playerBlk = singlePlayerStats[0].stats.BlkPerGame
+            this.setState({Pts: playerPts, Ast: playerAst, Reb: playerReb, Stl: playerStl, Blk: playerBlk})            
         })
     }
 
@@ -172,7 +160,12 @@ class Player extends Component {
                 : <div>
                 <img src={this.state.player.player_photo_url} alt="" style={logoStyle}/>
                 <h2>{this.state.player.playerName}</h2>
-                <p>Stats: {this.state.stats.abbreviation}: {this.state.stats.text}</p>
+                <p>Stats:</p>
+                <p>{this.state.Pts['@abbreviation']}: {this.state.Pts['#text']}</p>
+                <p>{this.state.Ast['@abbreviation']}: {this.state.Ast['#text']}</p>
+                <p>{this.state.Reb['@abbreviation']}: {this.state.Reb['#text']}</p>
+                <p>{this.state.Stl['@abbreviation']}: {this.state.Stl['#text']}</p>
+                <p>{this.state.Blk['@abbreviation']}: {this.state.Blk['#text']}</p>
                 {/* {this.state.team.stats.map(stat => (
                     <div key={player.id}>d
                         <Link to={`/players/${player.id}`}><img src={player.player_photo_url} alt="" style={logoStyle}/></Link>
