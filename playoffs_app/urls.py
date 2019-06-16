@@ -12,4 +12,5 @@ router.register('players', views.PlayerView)
 urlpatterns = [
     path('', include(router.urls)),
     path('stats', views.send_nba_request)
+    # path('stats/<playerName>/', views.send_nba_request)
 ]
