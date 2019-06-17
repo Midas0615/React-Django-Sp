@@ -20,7 +20,6 @@ class League extends Component {
             const leagueResponse = await axios.get(`/api/v1/leagues/${leagueId}`)
             this.setState({
                 league: leagueResponse.data
-                // songs: leagueResponse.data.songs,
             })
         }
         catch (error) {

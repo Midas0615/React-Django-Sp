@@ -20,7 +20,6 @@ class Team extends Component {
             const teamResponse = await axios.get(`/api/v1/teams/${teamId}`)
             this.setState({
                 team: teamResponse.data
-                // songs: teamResponse.data.songs,
             })
         }
         catch (error) {
@@ -77,7 +76,7 @@ class Team extends Component {
             <div>
         {
             this.state.isEditFormDisplayed
-                ? <div><h1>Change into {this.state.team.teamName}</h1>
+                ? <div><h1>Change to {this.state.team.teamName}</h1>
                 <div><img src={this.state.team.team_logo_url} alt='' style={logoStyle}/></div>
                 <form onSubmit={this.updateTeam}>
                 <div>

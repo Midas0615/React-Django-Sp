@@ -8,7 +8,6 @@ router.register('leagues', views.LeagueView)
 router.register('teams', views.TeamView)
 router.register('players', views.PlayerView)
 
-
 urlpatterns = [
     path('', include(router.urls)),
     path('stats', views.send_nba_request)
