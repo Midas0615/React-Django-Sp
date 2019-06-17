@@ -16,7 +16,14 @@ class Player extends Component {
     componentDidMount() {
         const playerId = this.props.match.params.id;
         this.fetchPlayer(playerId)
-        this.fetchPlayerStats()
+            .then(name => {
+                console.log(name)
+                const firstName = name.split(" ")[0]
+                const lastName = name.split(" ")[1]
+                console.log(firstName)
+                console.log(lastName)
+                // this.fetchPlayerStats(firstName, lastName)
+        })
     }
 
     fetchPlayer = async (playerId) => {
@@ -25,6 +32,9 @@ class Player extends Component {
             this.setState({
                 player: playerResponse.data
             })
+            console.log(this.state.player.playerName)
+            let name = this.state.player.playerName
+            return name
         }
         catch (error) {
             console.log(error)
@@ -32,11 +42,13 @@ class Player extends Component {
         }
     }
 
-    fetchPlayerStats = () => {
+    fetchPlayerStats = (firstName, lastName) => {
         axios.get(`/api/v1/stats`).then(res => {
             let stats = res.data
+            console.log(firstName)
             let playerArray = stats.cumulativeplayerstats.playerstatsentry
-            const singlePlayerStats = playerArray.filter(singlePlayer => singlePlayer.player.FirstName === "LeBron");
+            const singlePlayerStats = playerArray.filter(singlePlayer => singlePlayer.player.FirstName === firstName && singlePlayer.player.LastName === lastName);
+            console.log(singlePlayerStats)
             let playerPts = singlePlayerStats[0].stats.PtsPerGame
             let playerAst = singlePlayerStats[0].stats.AstPerGame
             let playerReb = singlePlayerStats[0].stats.RebPerGame
