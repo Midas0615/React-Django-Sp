@@ -17,7 +17,7 @@ class PlayerView(viewsets.ModelViewSet):
 
 import base64
 import requests
-from decouple import config
+from python-decouple import config
 
 key = config('API_key')
 password = config('password')
