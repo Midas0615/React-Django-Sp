@@ -121,7 +121,7 @@ class League extends Component {
                             value={this.state.league.favorite}
                         />
                     </div>
-                    <button>Rename to {this.state.league.leagueName}</button>
+                    <button>Rename into {this.state.league.leagueName}</button>
                     <button onClick={this.toggleEditForm}>Cancel</button>
                 </form>
                 </div>
