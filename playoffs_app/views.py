@@ -40,9 +40,6 @@ def send_nba_request(playerName):
             status_code=response.status_code))
         print('Response HTTP Response Body: {content}'.format(
             content=response.content))
-        stats = response.json()['cumulativeplayerstats']['playerstatsentry'][0]['stats']
-        category = stats['Fg3PtAttPerGame']['@category']
-        stat = stats['Fg3PtAttPerGame']['#text']
-        return stat
+
     except requests.exceptions.RequestException:
         print('HTTP Request failed')
