@@ -85,6 +85,12 @@ class Player extends Component {
             height: "300px"
         }
 
+        const statStyle = {
+            fontSize: "20px",
+            fontWeight: "bold",
+            margin: "5px"
+        }
+
         return (
 
             <div>
@@ -160,17 +166,13 @@ class Player extends Component {
                 : <div>
                 <img src={this.state.player.player_photo_url} alt="" style={logoStyle}/>
                 <h2>{this.state.player.playerName}</h2>
-                <p>Stats:</p>
-                <p>{this.state.Pts['@abbreviation']}: {this.state.Pts['#text']}</p>
-                <p>{this.state.Ast['@abbreviation']}: {this.state.Ast['#text']}</p>
-                <p>{this.state.Reb['@abbreviation']}: {this.state.Reb['#text']}</p>
-                <p>{this.state.Stl['@abbreviation']}: {this.state.Stl['#text']}</p>
-                <p>{this.state.Blk['@abbreviation']}: {this.state.Blk['#text']}</p>
-                {/* {this.state.team.stats.map(stat => (
-                    <div key={player.id}>d
-                        <Link to={`/players/${player.id}`}><img src={player.player_photo_url} alt="" style={logoStyle}/></Link>
-                    </div>
-                ))} */}
+                <h2>Stats:</h2>
+                <p style={statStyle}>{this.state.Pts['@abbreviation']}: {this.state.Pts['#text']}</p>
+                <p style={statStyle}>{this.state.Ast['@abbreviation']}: {this.state.Ast['#text']}</p>
+                <p style={statStyle}>{this.state.Reb['@abbreviation']}: {this.state.Reb['#text']}</p>
+                <p style={statStyle}>{this.state.Stl['@abbreviation']}: {this.state.Stl['#text']}</p>
+                <p style={statStyle}>{this.state.Blk['@abbreviation']}: {this.state.Blk['#text']}</p>
+               
                 <div>
                     <Link to="/players"><button>Back to Players</button></Link>
                     <button onClick={this.toggleEditForm}>Update Player</button>

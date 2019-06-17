@@ -24,8 +24,6 @@ password = config('password')
 
 def send_nba_request(playerName):
 
-    # name = playerName.split()[0] + "-" + playerName.split()[1]
-
     try:
         response = requests.get(
             url="https://api.mysportsfeeds.com/v1.2/pull/nba/2018-2019-regular/cumulative_player_stats.json",
