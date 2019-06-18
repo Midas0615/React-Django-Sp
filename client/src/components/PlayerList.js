@@ -78,7 +78,8 @@ class PlayerList extends Component {
 
         const logoStyle = {
             margin: "10px",
-            height: "300px"
+            height: "300px",
+            borderRadius: "20px"
         }
 
         const logosStyle = {

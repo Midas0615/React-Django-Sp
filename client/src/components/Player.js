@@ -94,7 +94,8 @@ class Player extends Component {
         const logoStyle = {
             display: "inline-block",
             margin: "10px",
-            height: "300px"
+            height: "300px",
+            borderRadius: "20px"
         }
 
         const statStyle = {
