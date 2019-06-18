@@ -22,7 +22,7 @@ class Player extends Component {
                 const lastName = name.split(" ")[1]
                 console.log(firstName)
                 console.log(lastName)
-                // this.fetchPlayerStats(firstName, lastName)
+                this.fetchPlayerStats(firstName, lastName)
         })
     }
 
