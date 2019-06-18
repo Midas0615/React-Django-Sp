@@ -149,7 +149,7 @@ class Team extends Component {
                             value={this.state.team.players}
                         />
                     </div>
-                    <div>
+                    {/* <div>
                         <label htmlFor="favorite">Favorite?  </label>
                         <input
                             id="favorite"
@@ -158,7 +158,7 @@ class Team extends Component {
                             onChange={this.handleChange}
                             value={this.state.team.favorite}
                         />
-                    </div>
+                    </div> */}
                     <button>Rename to {this.state.team.teamName}</button>
                     <button onClick={this.toggleEditForm}>Cancel</button>
                 </form>

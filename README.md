@@ -10,7 +10,7 @@ Sports fan application built with Django, React, and PostgreSQL, leveraging a 3r
 
 ![Wireframe](https://github.com/JustinCotton/playoffs-or-bust/blob/master/PlayoffsWireframe.jpg)
 
-**Component Diagram:**
+**Component Diagram (with Instructor approval):**
 
 ![Component Diagram](https://github.com/JustinCotton/playoffs-or-bust/blob/master/PlayoffsDiagram.jpg)
 
@@ -37,4 +37,6 @@ Sports fan application built with Django, React, and PostgreSQL, leveraging a 3r
 
 ## Future Development
 
-  * Realtime updates!
+  * Realtime stat updates
+  * Stat support for all leagues, teams, and players
+  * Fan profiles and authentication

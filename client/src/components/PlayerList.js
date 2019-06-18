@@ -99,7 +99,6 @@ class PlayerList extends Component {
                 <div><img src={this.state.newPlayer.player_photo_url} style={logoStyle} alt=''/></div>
                 <h2>Click the team you want, then make your player!</h2>
                 <h2>If your team isn't listed, add it under the Teams tab!</h2>
-                {/* <h2>{stat}</h2> */}
                     {this.state.teams.map(team => {
                         return (                   
                             <div onClick={() => {this.setTeamId(team.id)}} key={team.id} style={smallLogoStyle}>                                
@@ -150,7 +149,7 @@ class PlayerList extends Component {
                             value={this.state.newPlayer.position}
                         />
                     </div>
-                    <div>
+                    {/* <div>
                         <label htmlFor="favorite">Favorite?  </label>
                         <input
                             id="favorite"
@@ -159,7 +158,7 @@ class PlayerList extends Component {
                             onChange={this.handleChange}
                             value={this.state.newPlayer.favorite}
                         />
-                    </div>
+                    </div> */}
                     
                    
                     <button type="submit">Create {this.state.newPlayer.playerName}</button>

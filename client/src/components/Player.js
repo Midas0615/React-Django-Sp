@@ -161,7 +161,7 @@ class Player extends Component {
                             value={this.state.player.position}
                         />
                     </div>
-                    <div>
+                    {/* <div>
                         <label htmlFor="favorite">Favorite?  </label>
                         <input
                             id="favorite"
@@ -170,7 +170,7 @@ class Player extends Component {
                             onChange={this.handleChange}
                             value={this.state.player.favorite}
                         />
-                    </div>
+                    </div> */}
                     <button>Rename to {this.state.player.playerName}</button>
                     <button onClick={this.toggleEditForm}>Cancel</button>
                 </form>

@@ -102,7 +102,7 @@ class LeagueList extends Component {
                             value={this.state.newLeague.sport}
                         />
                     </div>
-                    <div>
+                    {/* <div>
                         <label htmlFor="favorite">Favorite?  </label>
                         <input
                             id="favorite"
@@ -111,9 +111,7 @@ class LeagueList extends Component {
                             onChange={this.handleChange}
                             value={this.state.newLeague.favorite}
                         />
-                    </div>
-                    
-                   
+                    </div> */}                   
                     <button>Create {this.state.newLeague.leagueName}</button>
                     <button onClick={this.toggleLeagueForm}>Cancel</button>
                 </form>
