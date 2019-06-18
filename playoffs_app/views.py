@@ -23,7 +23,7 @@ key = config('API_key')
 password = config('password')
 
 def send_nba_request(playerName):
-
+    # code provided by MySportsFeeds API documentation at https://www.mysportsfeeds.com/data-feeds/api-docs/
     try:
         response = requests.get(
             url="https://api.mysportsfeeds.com/v1.2/pull/nba/2018-2019-regular/cumulative_player_stats.json",
