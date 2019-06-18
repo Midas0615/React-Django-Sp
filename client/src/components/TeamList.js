@@ -78,7 +78,8 @@ class TeamList extends Component {
 
         const logoStyle = {
             margin: "10px",
-            height: "200px"
+            height: "200px",
+            borderRadius: "20px"
         }
 
         const logosStyle = {

@@ -63,7 +63,8 @@ class Team extends Component {
 
         const logoStyle = {
             margin: "10px",
-            height: "250px"
+            height: "250px",
+            borderRadius: "20px"
         }
 
         const logosStyle = {
