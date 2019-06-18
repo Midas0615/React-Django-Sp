@@ -33,7 +33,7 @@ Sports fan application built with Django, React, and PostgreSQL, leveraging a 3r
 
 ## Features
 
-  * Create a fan profile to follow your favorite teams, their stats, and their quest for championships!
+  * Create a fan profile of your favorite teams and players, and track their stats on their quest for championships!
 
 ## Future Development
 
