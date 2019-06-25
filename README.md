@@ -2,7 +2,7 @@
 
 Sports fan application built with Django, React, and PostgreSQL, leveraging a 3rd-party API, and deployed with Heroku cloud platform.
 
-![Screenshot](https://github.com/JustinCotton/planet-killer/blob/master/PlayoffsScreenshot.JPG)
+![Screenshot](https://github.com/JustinCotton/playoffs-or-bust/blob/master/PlayoffsScreenshot.JPG)
 
 **Live site:** <https://playoffs-or-bust.herokuapp.com/>
 
