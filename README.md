@@ -1,6 +1,7 @@
 # Playoffs or BUST!
+## Overview
 
-Sports fan application built with Django, React, and PostgreSQL, leveraging a 3rd-party API, and deployed with Heroku cloud platform.
+Sports statistics tracking application built with Django, React, and PostgreSQL, leveraging a 3rd-party API, and deployed with Heroku cloud platform.
 
 ![Screenshot](https://github.com/JustinCotton/playoffs-or-bust/blob/master/PlayoffsScreenshot.JPG)
 
@@ -42,3 +43,4 @@ Sports fan application built with Django, React, and PostgreSQL, leveraging a 3r
   * Realtime stat updates
   * Stat support for all leagues, teams, and players
   * Fan profiles and authentication
+  * Playoff standings visualization
