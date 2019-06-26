@@ -23,16 +23,17 @@ Sports statistics tracking application built with Django, React, and PostgreSQL,
 
 ## Technologies Used
 
+  * Languages: Python, JavaScript
   * Client-side Tools: React, Ajax
   * Server-side Tools: Django, Django REST Framework
-  * Languages: Python, Javascript
-  * Development Tools: nodeJS    
-  * Version Control: Git, Github
   * Database Tools: PostgreSQL
+  * Third-Party API: MySportsFeeds
+  * Development Tools: Node.js    
+  * Version Control: Git, GitHub
   * Cloud Deployment: Heroku
   * Text Editor: Visual Studio Code
   * Design: Unsplash, Google Fonts
-  * Third-Party API: MySportsFeeds
+
 
 ## Features
 
