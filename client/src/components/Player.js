@@ -6,23 +6,36 @@ class Player extends Component {
 
     state = {
             player: {},
-            Pts: {},
-            Ast: {},
-            Reb: {},
-            Stl: {},
-            Blk: {}
+            stat1: {},
+            stat2: {},
+            stat3: {},
+            stat4: {},
+            stat5: {}
     }
 
     componentDidMount() {
         const playerId = this.props.match.params.id;
         this.fetchPlayer(playerId)
-            .then(name => {
-                console.log(name)
-                const firstName = name.split(" ")[0]
-                const lastName = name.split(" ")[1]
+            .then(playerData => {
+                // console.log(name)
+                console.log(playerData)
+                // const firstName = name.split(" ")[0]
+                // const lastName = name.split(" ")[1]
+                const firstName = playerData[0].split(" ")[0]
+                const lastName = playerData[0].split(" ")[1]
+                const sport = playerData[1].toLowerCase()
+                // const firstName = "Russell"
+                // const lastName = "Wilson"
+                // const sport = "football"
                 console.log(firstName)
                 console.log(lastName)
-                this.fetchPlayerStats(firstName, lastName)
+                console.log(sport)
+                // if (sport === "basketball") {
+                //     this.fetchNBAPlayerStats(firstName, lastName)
+                // } else if (sport === "football") {
+                //     this.fetchNFLPlayerStats(firstName, lastName)
+                // }
+                this.fetchPlayerStats(firstName, lastName, sport)
         })
     }
 
@@ -32,9 +45,12 @@ class Player extends Component {
             this.setState({
                 player: playerResponse.data
             })
+            console.log(this.state.player)
             console.log(this.state.player.playerName)
             let name = this.state.player.playerName
-            return name
+            let sport = this.state.player.sport
+            // return name
+            return [name, sport]
         }
         catch (error) {
             console.log(error)
@@ -42,21 +58,53 @@ class Player extends Component {
         }
     }
 
-    fetchPlayerStats = (firstName, lastName) => {
-        axios.get(`/api/v1/stats`).then(res => {
-            let stats = res.data
-            console.log(firstName)
-            let playerArray = stats.cumulativeplayerstats.playerstatsentry
-            const singlePlayerStats = playerArray.filter(singlePlayer => singlePlayer.player.FirstName === firstName && singlePlayer.player.LastName === lastName);
-            console.log(singlePlayerStats)
-            let playerPts = singlePlayerStats[0].stats.PtsPerGame
-            let playerAst = singlePlayerStats[0].stats.AstPerGame
-            let playerReb = singlePlayerStats[0].stats.RebPerGame
-            let playerStl = singlePlayerStats[0].stats.StlPerGame
-            let playerBlk = singlePlayerStats[0].stats.BlkPerGame
-            this.setState({Pts: playerPts, Ast: playerAst, Reb: playerReb, Stl: playerStl, Blk: playerBlk})            
-        })
+    fetchPlayerStats = (firstName, lastName, sport) => {
+        if (sport === "basketball") {
+            axios.get(`/api/v1/nbastats`).then(res => {
+                let stats = res.data
+                console.log(firstName)
+                let playerArray = stats.cumulativeplayerstats.playerstatsentry
+                const singlePlayerStats = playerArray.filter(singlePlayer => singlePlayer.player.FirstName === firstName && singlePlayer.player.LastName === lastName);
+                console.log(singlePlayerStats)
+                let playerPts = singlePlayerStats[0].stats.PtsPerGame
+                let playerAst = singlePlayerStats[0].stats.AstPerGame
+                let playerReb = singlePlayerStats[0].stats.RebPerGame
+                let playerStl = singlePlayerStats[0].stats.StlPerGame
+                let playerBlk = singlePlayerStats[0].stats.BlkPerGame
+                this.setState({stat1: playerPts, stat2: playerAst, stat3: playerReb, stat4: playerStl, stat5: playerBlk})            
+            })
+        } else if (sport === "football") {
+            axios.get(`/api/v1/nflstats`).then(res => {
+                let stats = res.data
+                let playerArray = stats.cumulativeplayerstats.playerstatsentry
+                const singlePlayerStats = playerArray.filter(singlePlayer => singlePlayer.player.FirstName === firstName && singlePlayer.player.LastName === lastName);
+                console.log(singlePlayerStats)
+                let playerTD = singlePlayerStats[0].stats.PassTD
+                let playerPassYds = singlePlayerStats[0].stats.PassYards
+                let playerPassPct = singlePlayerStats[0].stats.PassPct
+                let playerFumbles = singlePlayerStats[0].stats.Fumbles
+                let playerInt = singlePlayerStats[0].stats.Interceptions
+                this.setState({stat1: playerTD, stat2: playerPassYds, stat3: playerPassPct, stat4: playerFumbles, stat5: playerInt})           
+            })
+        }
     }
+
+    // fetchNFLPlayerStats = (firstName, lastName) => {
+    //     axios.get(`/api/v1/nflstats`).then(res => {
+    //         let stats = res.data
+    //         console.log(stats)
+    //         // console.log(firstName)
+    //         // let playerArray = stats.cumulativeplayerstats.playerstatsentry
+    //         // const singlePlayerStats = playerArray.filter(singlePlayer => singlePlayer.player.FirstName === firstName && singlePlayer.player.LastName === lastName);
+    //         // console.log(singlePlayerStats)
+    //         // let playerPts = singlePlayerStats[0].stats.PtsPerGame
+    //         // let playerAst = singlePlayerStats[0].stats.AstPerGame
+    //         // let playerReb = singlePlayerStats[0].stats.RebPerGame
+    //         // let playerStl = singlePlayerStats[0].stats.StlPerGame
+    //         // let playerBlk = singlePlayerStats[0].stats.BlkPerGame
+    //         // this.setState({Pts: playerPts, Ast: playerAst, Reb: playerReb, Stl: playerStl, Blk: playerBlk})            
+    //     })
+    // }
 
     deletePlayer = () => {
         axios.delete(`/api/v1/players/${this.props.match.params.id}`).then(res => {
@@ -180,11 +228,11 @@ class Player extends Component {
                 <img src={this.state.player.player_photo_url} alt="" style={logoStyle}/>
                 <h2>{this.state.player.playerName}</h2>
                 <h2>Stats:</h2>
-                <p style={statStyle}>{this.state.Pts['@abbreviation']}: {this.state.Pts['#text']}</p>
-                <p style={statStyle}>{this.state.Ast['@abbreviation']}: {this.state.Ast['#text']}</p>
-                <p style={statStyle}>{this.state.Reb['@abbreviation']}: {this.state.Reb['#text']}</p>
-                <p style={statStyle}>{this.state.Stl['@abbreviation']}: {this.state.Stl['#text']}</p>
-                <p style={statStyle}>{this.state.Blk['@abbreviation']}: {this.state.Blk['#text']}</p>
+                <p style={statStyle}>{this.state.stat1['@abbreviation']}: {this.state.stat1['#text']}</p>
+                <p style={statStyle}>{this.state.stat2['@abbreviation']}: {this.state.stat2['#text']}</p>
+                <p style={statStyle}>{this.state.stat3['@abbreviation']}: {this.state.stat3['#text']}</p>
+                <p style={statStyle}>{this.state.stat4['@abbreviation']}: {this.state.stat4['#text']}</p>
+                <p style={statStyle}>{this.state.stat5['@abbreviation']}: {this.state.stat5['#text']}</p>
                
                 <div>
                     <Link to="/players"><button>Back to Players</button></Link>
