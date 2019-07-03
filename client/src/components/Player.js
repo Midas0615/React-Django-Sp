@@ -64,6 +64,7 @@ class Player extends Component {
                 let stats = res.data
                 console.log(firstName)
                 let playerArray = stats.cumulativeplayerstats.playerstatsentry
+                console.log(playerArray)
                 const singlePlayerStats = playerArray.filter(singlePlayer => singlePlayer.player.FirstName === firstName && singlePlayer.player.LastName === lastName);
                 console.log(singlePlayerStats)
                 let playerPts = singlePlayerStats[0].stats.PtsPerGame
@@ -85,6 +86,23 @@ class Player extends Component {
                 let playerFumbles = singlePlayerStats[0].stats.Fumbles
                 let playerInt = singlePlayerStats[0].stats.Interceptions
                 this.setState({stat1: playerTD, stat2: playerPassYds, stat3: playerPassPct, stat4: playerFumbles, stat5: playerInt})           
+            })
+        } else if (sport === "baseball") {
+            axios.get(`/api/v1/mlbstats`).then(res => {
+                let stats = res.data
+                console.log(stats)
+                let playerArray = stats.cumulativeplayerstats.playerstatsentry
+                console.log(playerArray)
+                console.log(firstName)
+                console.log(lastName)
+                const singlePlayerStats = playerArray.filter(singlePlayer => singlePlayer.player.FirstName === firstName && singlePlayer.player.LastName === lastName);
+                console.log(singlePlayerStats)
+                let playerBattingAvg = singlePlayerStats[0].stats.BattingAvg
+                let playerHits = singlePlayerStats[0].stats.Hits
+                let playerRunsBattedIn = singlePlayerStats[0].stats.RunsBattedIn                
+                let playerBatterOnBasePct = singlePlayerStats[0].stats.BatterOnBasePct
+                let playerHomeruns = singlePlayerStats[0].stats.Homeruns
+                this.setState({stat1: playerBattingAvg, stat2: playerHits, stat3: playerRunsBattedIn, stat4: playerBatterOnBasePct, stat5: playerHomeruns})           
             })
         }
     }

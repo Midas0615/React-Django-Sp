@@ -11,5 +11,6 @@ router.register('players', views.PlayerView)
 urlpatterns = [
     path('', include(router.urls)),
     path('nbastats', views.send_nba_request),
-    path('nflstats', views.send_nfl_request)
+    path('nflstats', views.send_nfl_request),
+    path('mlbstats', views.send_mlb_request)
 ]
