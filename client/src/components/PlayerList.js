@@ -140,7 +140,7 @@ class PlayerList extends Component {
                             value={this.state.newPlayer.sport}
                         />
                     </div>
-                    <div>
+                    {/* <div>
                         <label htmlFor="position">Position: </label>
                         <textarea
                             id="position"
@@ -149,7 +149,7 @@ class PlayerList extends Component {
                             onChange={this.handleChange}
                             value={this.state.newPlayer.position}
                         />
-                    </div>
+                    </div> */}
                     {/* <div>
                         <label htmlFor="favorite">Favorite?  </label>
                         <input

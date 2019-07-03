@@ -218,7 +218,7 @@ class Player extends Component {
                             value={this.state.player.team}
                         />
                     </div>
-                    <div>
+                    {/* <div>
                         <label htmlFor="position">Position: </label>
                         <textarea
                             id="position"
@@ -227,7 +227,7 @@ class Player extends Component {
                             onChange={this.handleChange}
                             value={this.state.player.position}
                         />
-                    </div>
+                    </div> */}
                     {/* <div>
                         <label htmlFor="favorite">Favorite?  </label>
                         <input
